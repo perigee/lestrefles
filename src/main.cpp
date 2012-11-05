@@ -8,10 +8,8 @@
  
 void hello(int i)
 {
-  std::cout <<
-    "Hello world, I'm a thread! "
-	    << i 
-  << std::endl;
+  std::cout <<   "I'm a thread! "
+	    << i << std::endl;
 }
  
 int main(int argc, char* argv[])
