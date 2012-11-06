@@ -16,7 +16,7 @@ require('quantmod')
 
 #for(i in 1:length(tickers[,1])) {
 #  ticker=tickers[i,1]
-ticker <- "IBM"
+ticker <- "FCEL"
 
 #Get date
   beginDate <- '1990-01-01'
