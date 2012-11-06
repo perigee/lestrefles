@@ -25,9 +25,10 @@ for(i in 1:length(tickers[,1])) {
   
 data <- getSymbols(ticker, from=beginDate, to=today, auto.assign=FALSE)
 data <- adjustOHLC(data, use.Adjusted=TRUE)
+dataHist <- MACD(data)$macd - MACD(data)$signal
 #filename <- c("cache/",tickers[1,1],".rdata")
 #save(data,file=filename)
-chartSeries(data,name=ticker, subset='last 13 months', TA="addMACD();addBBands()")
+chartSeries(data,name=ticker, subset='last 6 months', TA="addMACD();addBBands()")
 saveChart('pdf')
 }
 
