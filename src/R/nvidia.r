@@ -35,8 +35,8 @@ dataMaVo <- cbind(dataHist, Vo(data)) # combine the macd hist with volume and cl
 #chartSeries(dataMaVo, name=ticker, subset="last 7 months", TA="addMACD()")
 #chartSeries(data,name=ticker, subset='last 6 months', TA="addMACD();addBBands()")
 #chartSeries(data,name=ticker, subset='last 6 months', TA="addMACD()")
-chartSeries(data,name=ticker, subset='last 6 months')
-addMACD()
+chartSeries(data,name=ticker, subset='last 30 months')
+addTA(MACD(data))
 #saveChart('pdf') # save the file in format of PDF
 
 

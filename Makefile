@@ -1,4 +1,4 @@
-TARGET = eagraph #executive file name
+TARGET = test #executive file name
 CC = clang++ -g #-g
 CFLAGS = -std=c++11 -stdlib=libc++
 
