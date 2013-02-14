@@ -16,7 +16,9 @@ require('quantmod')
 
 #for(i in 1:length(tickers[,1])) {
 #  ticker=tickers[i,1]
-ticker <- "CSIQ"
+
+plotData <- function(name){
+ticker <- name
 
 #Get date
   beginDate <- '1990-01-01'
@@ -35,7 +37,9 @@ dataMaVo <- cbind(dataHist, Vo(data)) # combine the macd hist with volume and cl
 #chartSeries(dataMaVo, name=ticker, subset="last 7 months", TA="addMACD()")
 #chartSeries(data,name=ticker, subset='last 6 months', TA="addMACD();addBBands()")
 #chartSeries(data,name=ticker, subset='last 6 months', TA="addMACD()")
-chartSeries(data,name=ticker, subset='last 7 months', TA='addBBands(n=30);addVo();addMACD();addVolatility()')
+chartSeries(data,name=ticker, subset='last 7 months', TA='addBBands();addVo();addMACD();addVolatility()')
+
+
 
 #addTA(MACD(data))
 #saveChart('pdf') # save the file in format of PDF
@@ -43,6 +47,7 @@ chartSeries(data,name=ticker, subset='last 7 months', TA='addBBands(n=30);addVo(
 
 #} # for loop end
 
+}
 
 # 1 1 2 3 5 8 13 21 34 55 89 144
 
