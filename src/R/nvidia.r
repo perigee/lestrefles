@@ -3,7 +3,7 @@ require('RMySQL')
 require('quantmod')
 
 # set timezone
-Sys.setenv(TZ = "GMT")
+
 
 
 #Get db object
@@ -19,23 +19,16 @@ Sys.setenv(TZ = "GMT")
 
 
 
-getSymbols("BAC", src='yahoo', to=Sys.Date())
-spy.quote = getQuote("BAC", what = yahooQuote.EOD)
-
-# convert to xts
-xts.quote <- xts(spy.quote[, -1], as.Date(spy.quote[, 1])) # use Date for indexClass
-xts.quote$Adjusted <- xts.quote[, 'Close'] # add an Adjusted column
-
-tail(rbind(BAC, xts.quote), 3)
-
-
-
 
 #for(i in 1:length(tickers[,1])) {
 #  ticker=tickers[i,1]
 
 plotData <- function(name){
-ticker <- name
+  
+
+  Sys.setenv(TZ = "GMT")
+  
+  ticker <- name
 
 #Get date
   beginDate <- '1990-01-01'
@@ -51,16 +44,17 @@ data <- rbind(data, xts.quote)
 #tail(data)
 
 data <- adjustOHLC(data, use.Adjusted=TRUE) # adjust the data
-dataMACD <- MACD(data)
-dataHist <- dataMACD$macd - dataMACD$signal # get macd histogram
+#dataMACD <- MACD(data)
+#dataHist <- dataMACD$macd - dataMACD$signal # get macd histogram
 #dataMaVo <- cbind(Cl(data), dataHist, Vo(data)) # combine the macd hist with volume and close price
-dataMaVo <- cbind(dataHist, Vo(data)) # combine the macd hist with volume and close price 
+#dataMaVo <- cbind(dataHist, Vo(data)) # combine the macd hist with volume and close price 
 #filename <- c("cache/",tickers[1,1],".rdata") 
 #save(data,file=filename)
 #chartSeries(dataMaVo, name=ticker, subset="last 7 months", TA="addMACD()")
 #chartSeries(data,name=ticker, subset='last 6 months', TA="addMACD();addBBands()")
 #chartSeries(data,name=ticker, subset='last 6 months', TA="addMACD()")
-chartSeries(data,name=ticker, subset='last 7 months', TA='addBBands();addVo();addMACD();addVolatility()')
+  tail(data)
+  chartSeries(data,name=ticker, subset='last 7 months', TA='addBBands();addVo();addMACD();addVolatility()')
 
 
 
