@@ -1,5 +1,5 @@
 # Get the data from internet
-require('RMySQL')
+#require('RMySQL')
 require('quantmod')
 
 # set timezone
@@ -54,7 +54,7 @@ data <- adjustOHLC(data, use.Adjusted=TRUE) # adjust the data
 #chartSeries(data,name=ticker, subset='last 6 months', TA="addMACD();addBBands()")
 #chartSeries(data,name=ticker, subset='last 6 months', TA="addMACD()")
   tail(data)
-  chartSeries(data,name=ticker, subset='last 7 months', TA='addBBands();addVo();addMACD();addVolatility()')
+  chartSeries(data,name=ticker, subset='last 10 months', TA='addBBands();addVo();addMACD();addVolatility()')
 
 
 
