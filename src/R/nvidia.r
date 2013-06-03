@@ -54,9 +54,9 @@ data <- adjustOHLC(data, use.Adjusted=TRUE) # adjust the data
 #chartSeries(data,name=ticker, subset='last 6 months', TA="addMACD();addBBands()")
 #chartSeries(data,name=ticker, subset='last 6 months', TA="addMACD()")
   tail(data)
-  chartSeries(data,name=ticker, subset='last 10 months', TA='addBBands();addVo();addMACD();addVolatility()')
+  chartSeries(data,name=ticker, subset='last 10 months', TA='addBBands();addVo();addMACD();addVolatility();addSMA(n=7)')
 
-
+tail(data)
 
 #addTA(MACD(data))
 #saveChart('pdf') # save the file in format of PDF
